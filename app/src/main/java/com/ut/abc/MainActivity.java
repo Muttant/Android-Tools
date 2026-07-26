@@ -23,14 +23,13 @@ public class MainActivity extends AppCompatActivity {
             String fileName = etName.getText().toString().trim();
 
             try {
-                // Mở file từ thư mục assets
                 InputStream in = getAssets().open(fileName);
 
-                // Trỏ tới thư mục Downloads của máy
+
                 File outDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
                 OutputStream out = new FileOutputStream(new File(outDir, fileName));
 
-                // Copy dữ liệu
+
                 byte[] buffer = new byte[1024];
                 int read;
                 while ((read = in.read(buffer)) != -1) {
